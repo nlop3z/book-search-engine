@@ -4,7 +4,6 @@ import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloProvider } from '@apollo/client';
 import ApolloClient from 'apollo-boost';
 
 import { useQuery, gql } from '@apollo/client';
