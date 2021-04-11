@@ -1,4 +1,3 @@
-// see SignupForm.js for comments
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
@@ -13,7 +12,7 @@ const LoginForm = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const[loginUser, {error}] = useMutation(LOGIN_USER);
+  const[loginUsers, {error}] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -24,12 +23,11 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await loginUser({
+      const { data } = await loginUsers({
         variables: { ...userFormData}
       });
-
       Auth.login(data.login.token)
-
+      loginUser(data);
     } catch (e) {
       console.error(e);
     }

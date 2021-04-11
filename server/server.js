@@ -1,3 +1,5 @@
+import { typeDefs } from '../schemas/typeDefs';
+import { resolver } from '../schemas/resolver'
 require('dotenv').config();
 
 const express = require('express');
@@ -64,7 +66,7 @@ const resolvers = {
 
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolver });
 
 // The `listen` method launches a web server.
 server.listen().then(({ url }) => {
